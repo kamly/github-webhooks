@@ -1,0 +1,8 @@
+
+.idea
+
+logs
+include
+includeSh/*
+!includeSh/demo.sh
+
