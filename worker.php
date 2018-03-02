@@ -9,6 +9,13 @@
     $redis->auth($config['redis']['password']);
 
     $value = $redis->lpop($config['queue_name']);
+
+    if (!$value) {
+        $msg = [
+            'message' => 'no date in queue'
+        ];
+        echo json_encode($msg);
+    }
     
     $value = json_decode($value, true);
     $origin_repository = $value['origin_repository'];
@@ -28,6 +35,12 @@
            'type' => 'fail',
        ];
        write_log(json_encode($msg), 'request');
+
+        $msg = [
+            'message' => 'cmd fail'
+        ];
+        echo json_encode($msg);
+
        exit();
      } else {
        // 记录发送请求
@@ -40,6 +53,12 @@
            'type' => 'success',
        ];
        write_log(json_encode($msg), 'request');
+
+        $msg = [
+            'message' => 'cmd success'
+        ];
+        echo json_encode($msg);
+
        exit();
      }
 

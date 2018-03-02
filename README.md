@@ -40,6 +40,19 @@ $repository_path_array => [
 ];
 ```
 
+### 使用
+
+```shell
+cd /data/www
+wget https://github.com/kamly/github-webhooks/archive/v1.0.tar.gz
+tar -zxvf v1.0.tar.gz
+mv v1.0.tar.gz github-webhooks
+cd github-webhooks
+mkdir logs
+chown www:www logs
+vim include/config.php
+```
+
 ### 缺陷
 
 由于执行脚本文件的时候需要时间，github 的回调会是 time out
@@ -96,5 +109,20 @@ $config = [
 ];
 ```
 
+### 使用
 
+```shell
+cd /data/www
+wget https://github.com/kamly/github-webhooks/archive/v1.0.tar.gz
+tar -zxvf v1.0.tar.gz
+mv v1.0.tar.gz github-webhooks
+cd github-webhooks
+mkdir logs
+chown www:www logs
+vim include/config.php
+
+mkdir /data/logs/crontab/
+crontab -e
+*/1 * * * * root php /data/www/spare.charmingkamly.cn/github-webhooks/worker.php &>> /data/logs/crontab/github-webhooks-worker.log
+```
 
