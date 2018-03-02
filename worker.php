@@ -25,19 +25,12 @@
     $root = $config['root'];
 
     // 执行相应的 shell 脚本
-    $cmd_result = shell_exec("{$root}/include/{$origin_repository}.sh 2>&1");
+    $cmd_result = shell_exec("{$root}/includeSh/{$origin_repository}.sh 2>&1");
 
     if ($cmd_result == FALSE) {
-        // 记录发送请求
-        $msg = [
-           'date' => date('c'),
-           'repository' => $origin_repository,
-           'type' => 'fail',
-       ];
-       write_log(json_encode($msg), 'request');
-
         $msg = [
             'date' => date('c'),
+            'cmd' => "{$root}/includeSh/{$origin_repository}.sh 2>&1",
             'repository' => $origin_repository,
             'message' => 'cmd fail'
         ];
@@ -45,16 +38,9 @@
 
        exit();
      } else {
-       // 记录发送请求
-       $msg = [
-           'date' => date('c'),
-           'repository' => $origin_repository,
-           'type' => 'success',
-       ];
-       write_log(json_encode($msg), 'request');
-
         $msg = [
             'date' => date('c'),
+            'cmd' => "{$root}/includeSh/{$origin_repository}.sh 2>&1",
             'repository' => $origin_repository,
             'message' => 'cmd success'
         ];
