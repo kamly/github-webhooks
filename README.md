@@ -128,7 +128,8 @@ vim include/config.php
 
 mkdir /data/logs/crontab/
 crontab -e
-*/1 * * * * php /data/www/spare.charmingkamly.cn/github-webhooks/worker.php &>> /data/logs/crontab/github-webhooks-worker.log
+# github-webhooks 检测
+*/1 * * * * php /data/www/spare.charmingkamly.cn/github-webhooks/worker.php >> /data/logs/crontab/github-webhooks-worker.log  2>&1
 ```
 
 ### 编写执行脚本
