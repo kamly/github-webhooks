@@ -12,6 +12,7 @@
 
     if (!$value) {
         $msg = [
+            'date' => date('c'),
             'message' => 'no date in queue'
         ];
         echo json_encode($msg);
@@ -37,6 +38,7 @@
        write_log(json_encode($msg), 'request');
 
         $msg = [
+            'date' => date('c'),
             'message' => 'cmd fail'
         ];
         echo json_encode($msg);
@@ -55,6 +57,7 @@
        write_log(json_encode($msg), 'request');
 
         $msg = [
+            'date' => date('c'),
             'message' => 'cmd success'
         ];
         echo json_encode($msg);
