@@ -27,27 +27,15 @@
     // 执行相应的 shell 脚本
     $cmd_result = shell_exec("{$root}/includeSh/{$origin_repository}.sh 2>&1");
 
-    if ($cmd_result == FALSE) {
-        $msg = [
-            'date' => date('c'),
-            'cmd' => "{$root}/includeSh/{$origin_repository}.sh 2>&1",
-            'repository' => $origin_repository,
-            'message' => 'cmd fail'
-        ];
-        echo json_encode($msg);
+    $msg = [
+        'date' => date('c'),
+        'repository' => $origin_repository,
+        'cmd' => "{$root}/includeSh/{$origin_repository}.sh 2>&1",
+        'cmd_result' =>  $cmd_result,
+        'message' => 'cmd exe'
+    ];
+    echo json_encode($msg);
 
-       exit();
-     } else {
-        $msg = [
-            'date' => date('c'),
-            'cmd' => "{$root}/includeSh/{$origin_repository}.sh 2>&1",
-            'repository' => $origin_repository,
-            'message' => 'cmd success'
-        ];
-        echo json_encode($msg);
-
-       exit();
-     }
 
 
 
