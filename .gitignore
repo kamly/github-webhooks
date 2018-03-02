@@ -2,7 +2,8 @@
 .idea
 
 logs
-include
+
 includeSh/*
 !includeSh/demo.sh
 
+include/config.php
