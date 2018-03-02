@@ -53,6 +53,11 @@ chown www:www logs
 vim include/config.php
 ```
 
+### 编写执行脚本
+
+记得赋值权限  `chmod 755 includeSh/xxx.sh`
+
+
 ### 缺陷
 
 由于执行脚本文件的时候需要时间，github 的回调会是 time out
@@ -125,4 +130,9 @@ mkdir /data/logs/crontab/
 crontab -e
 */1 * * * * php /data/www/spare.charmingkamly.cn/github-webhooks/worker.php &>> /data/logs/crontab/github-webhooks-worker.log
 ```
+
+### 编写执行脚本
+
+记得赋值权限  `chmod 755 includeSh/xxx.sh`
+
 

@@ -71,7 +71,7 @@
                 'uuid' => guid(), // uuid
                 'origin_repository' => $origin_repository, // 哪个仓库
             ];
-            $redis->rpush($config['queue_name'], json_encode(msg));
+            $redis->rpush($config['queue_name'], json_encode($msg));
 
             // 记录发送请求
             $msg = [
