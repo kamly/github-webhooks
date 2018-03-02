@@ -123,6 +123,6 @@ vim include/config.php
 
 mkdir /data/logs/crontab/
 crontab -e
-*/1 * * * * root php /data/www/spare.charmingkamly.cn/github-webhooks/worker.php &>> /data/logs/crontab/github-webhooks-worker.log
+*/1 * * * * php /data/www/spare.charmingkamly.cn/github-webhooks/worker.php &>> /data/logs/crontab/github-webhooks-worker.log
 ```
 

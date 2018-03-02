@@ -13,9 +13,11 @@
     if (!$value) {
         $msg = [
             'date' => date('c'),
+            'repository' => '',
             'message' => 'no date in queue'
         ];
         echo json_encode($msg);
+        exit();
     }
     
     $value = json_decode($value, true);
@@ -29,16 +31,14 @@
         // 记录发送请求
         $msg = [
            'date' => date('c'),
-           'ip' => $_SERVER['REMOTE_ADDR'],
-           'content' => $content,
            'repository' => $origin_repository,
-           'branch' => $origin_branch,
            'type' => 'fail',
        ];
        write_log(json_encode($msg), 'request');
 
         $msg = [
             'date' => date('c'),
+            'repository' => $origin_repository,
             'message' => 'cmd fail'
         ];
         echo json_encode($msg);
@@ -48,16 +48,14 @@
        // 记录发送请求
        $msg = [
            'date' => date('c'),
-           'ip' => $_SERVER['REMOTE_ADDR'],
-           'content' => $content,
            'repository' => $origin_repository,
-           'branch' => $origin_branch,
            'type' => 'success',
        ];
        write_log(json_encode($msg), 'request');
 
         $msg = [
             'date' => date('c'),
+            'repository' => $origin_repository,
             'message' => 'cmd success'
         ];
         echo json_encode($msg);
