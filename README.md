@@ -118,9 +118,9 @@ $config = [
 
 ```shell
 cd /data/www
-wget https://github.com/kamly/github-webhooks/archive/v1.0.tar.gz
-tar -zxvf v1.0.tar.gz
-mv v1.0.tar.gz github-webhooks
+wget https://github.com/kamly/github-webhooks/archive/v2.0.tar.gz
+tar -zxvf v2.0.tar.gz
+mv v2.0.tar.gz github-webhooks
 cd github-webhooks
 mkdir logs
 chown www:www logs
